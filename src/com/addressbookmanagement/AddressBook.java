@@ -7,8 +7,7 @@ import java.util.Scanner;
 public class AddressBook extends ContactPerson {
     public static AddressBook newPerson = new AddressBook();
     public static ArrayList<ContactPerson> person = new ArrayList<>();
-
-    public static void add() {
+    public static void add(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter first name");
         newPerson.setFirstName(scanner.nextLine());
@@ -26,20 +25,21 @@ public class AddressBook extends ContactPerson {
         newPerson.setPhoneNumber(scanner.nextLong());
         System.out.println("Enter Email");
         newPerson.setEmail(scanner.nextLine());
-        ContactPerson contactPerson = new ContactPerson(newPerson.getFirstName(), newPerson.getLastName(), newPerson.getAddress(), newPerson.getCity(), newPerson.getState(), newPerson.getZip(), newPerson.getPhoneNumber(), newPerson.getEmail());
+        ContactPerson contactPerson = new ContactPerson(newPerson.getFirstName(),newPerson.getLastName(), newPerson.getAddress(), newPerson.getCity(), newPerson.getState(), newPerson.getZip(), newPerson.getPhoneNumber(),newPerson.getEmail());
         person.add(contactPerson);
         System.out.println(person);
     }
 
-    public static void modify() {
+    public static void modify(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the first name whose contact to be edited");
         String name = scanner.nextLine();
-        boolean found = false;
+        boolean found=false;
         ListIterator<ContactPerson> iterator = person.listIterator();
-        while (iterator.hasNext()) {
-            ContactPerson contact = iterator.next();
-            if (name.equals(contact.getFirstName())) {
+        while (iterator.hasNext()){
+            ContactPerson contact= iterator.next();
+            if (name.equals(contact.getFirstName()))
+            {
                 System.out.println("Edit first name");
                 newPerson.setFirstName(scanner.nextLine());
                 System.out.println("Edit last name");
@@ -56,22 +56,21 @@ public class AddressBook extends ContactPerson {
                 newPerson.setPhoneNumber(scanner.nextLong());
                 System.out.println("Edit Email");
                 newPerson.setEmail(scanner.nextLine());
-                iterator.set(new ContactPerson(newPerson.getFirstName(), newPerson.getLastName(), newPerson.getAddress(), newPerson.getCity(), newPerson.getState(), newPerson.getZip(), newPerson.getPhoneNumber(), newPerson.getEmail()));
-                found = true;
+                iterator.set(new ContactPerson(newPerson.getFirstName(),newPerson.getLastName(), newPerson.getAddress(), newPerson.getCity(), newPerson.getState(), newPerson.getZip(), newPerson.getPhoneNumber(),newPerson.getEmail()));
+                found=true;
             }
 
         }
-        if (found) {
+        if (found){
             System.out.println("record is update");
             System.out.println(person);
-        } else {
+        }else {
             System.out.println("record not found");
         }
     }
-
-    public static void delete() {
+    public static void delete(){
         Scanner scanner = new Scanner(System.in);
-        boolean found = false;
+        boolean found=false;
         System.out.println("Enter the first name of contact to delete");
         String nameDelete;
         nameDelete = scanner.nextLine();
@@ -80,23 +79,21 @@ public class AddressBook extends ContactPerson {
             ContactPerson contact = iterator.next();
             if (nameDelete.equals(contact.getFirstName())) {
                 iterator.remove();
-                found = true;
+                found=true;
             }
         }
-        if (found) {
+        if (found){
             System.out.println("record is deleted");
             System.out.println(person);
-        } else {
+        }else {
             System.out.println("record not found");
         }
     }
-
-    public static void main(String[] args) {
+    public void addContactsMain(AddressBook addressBook) {
         Scanner scanner = new Scanner(System.in);
         int flag = 0;
         int choice;
         System.out.println("Welcome to Address Book Program");
-
         while (flag != 1) {
             System.out.println("Enter 1 to add contact details");
             System.out.println("Enter 2 to edit details");
@@ -108,7 +105,7 @@ public class AddressBook extends ContactPerson {
                 add();
             } else if (choice == 2) {
                 modify();
-            } else if (choice == 3) {
+            } else if (choice==3) {
                 delete();
             } else if (choice == 4) {
                 flag = 1;
