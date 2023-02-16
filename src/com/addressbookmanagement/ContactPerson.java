@@ -10,6 +10,9 @@ public class ContactPerson {
     long phoneNumber;
     String email = new String();
 
+    public ContactPerson(String firstName, String lastName, String address, String city, String state, int zip, long phoneNumber, String email) {
+    }
+
     public String getEmail() {
         return email;
     }
