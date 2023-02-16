@@ -74,23 +74,25 @@ public class ContactPerson {
         return firstName;
     }
 
-    public ContactPerson(String firstName, String lastName, String address, String city, String state, int zip, int phoneNumber ){
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.address=address;
-        this.city=city;
-        this.state=state;
-        this.zip=zip;
-        this.phoneNumber=phoneNumber;
+    public ContactPerson(String firstName, String lastName, String address, String city, String state, int zip, int phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phoneNumber = phoneNumber;
 
     }
-    public ContactPerson(){
+
+    public ContactPerson() {
         super();
     }
+
     @Override
     public String toString() {
-        return "Employee [name=" + this.firstName +" "+ this.lastName + ", Address=" + this.address + ", City="
+        return "Employee [name=" + this.firstName + " " + this.lastName + ", Address=" + this.address + ", City="
                 + this.city + ", state=" + this.state + ", zip=" + this.zip
-                + ", phone=" + this.phoneNumber + "]";
+                + ", phone=" + this.phoneNumber + ", Email=" + this.email + "]";
     }
 }
